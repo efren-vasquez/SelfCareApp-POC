@@ -1,0 +1,41 @@
+:root {
+    --white: #fafafa;
+    --primary: #028090;
+    --secondary: #9c3848;
+    --black: #0b0a09;
+    --error: #9d0208;
+  }
+  
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    font-size: 12px;
+    font-family: "Ubuntu Sans", sans-serif;
+    background-color: var(--white);
+  }
+  
+  h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+  
+  h4 {
+    font-weight: 400;
+    font-size: 1.25rem;
+  }
+  
+  p {
+    font-weight: 300;
+  }
