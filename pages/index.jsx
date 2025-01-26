@@ -22,7 +22,7 @@ export const getServerSideProps = withIronSessionSsr(
         } else {
             props.isLoggedIn = false
         }
-        console.log(props.tasks)
+        console.log("Tasks: ", props.tasks)
         return { props }
     },
     sessionOptions

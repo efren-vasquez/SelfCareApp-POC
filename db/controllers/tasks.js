@@ -5,7 +5,7 @@ export async function markTaskComplete(userId, taskId) {
     await dbConnect()
     const user = await User.findById(userId)
     if (!user) return null
-    
+
     const task = user.tasks.map(task => task.findById(taskId))
     console.log(task)
     if (!task) {
