@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost:27027/${process.env.npm_package_confid_DB_NAME}`;
+const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost:27027/${process.env.npm_package_config_DB_NAME}`;
 
 let cached = global.mongoose
 

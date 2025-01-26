@@ -1,5 +1,6 @@
 import { Schema, model, models } from "mongoose";
 import bcrypt from 'bcrypt'
+import TaskSchema from "./tasks";
 
 const UserSchema = new Schema({
     firstName: {
@@ -25,7 +26,8 @@ const UserSchema = new Schema({
         required: true,
         minLength: 5,
         maxLength: 200
-    }
+    },
+    tasks: [TaskSchema]
 })
 
 UserSchema.pre('save', async function(next) {
