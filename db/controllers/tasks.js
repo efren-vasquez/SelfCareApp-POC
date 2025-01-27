@@ -31,14 +31,14 @@ export async function getAllTasks(userId) {
     }))
 }
 
-export async function addTask(userId, content, date) {
+export async function addTask(userId, content, date, markedComplete = false) {
     await dbConnect()
     const user = await User.findById(userId)
 
     if(!user) return null
     if (!user.tasks) user.tasks = []
 
-    const task = { content, date }
+    const task = { content, date, markedComplete }
     user.tasks.push(task)
     await user.save()
 
