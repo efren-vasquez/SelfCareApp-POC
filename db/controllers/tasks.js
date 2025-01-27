@@ -6,7 +6,7 @@ export async function markTaskComplete(userId, taskId) {
     const user = await User.findById(userId)
     if (!user) return null
 
-    const task = user.tasks.map(task => task.findById(taskId))
+    const task = user.tasks.find((task) => task._id.toString() === taskId)
     console.log(task)
     if (!task) {
         return null 

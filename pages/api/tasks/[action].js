@@ -62,7 +62,7 @@ async function getAllTasks(req, res, userId) {
   }
 }
 
-async function markComplete(req, res, userId, taskId) {
+async function markComplete(req, res, userId, taskId ) {
   console.log("API taskId: ", taskId)
   if (!taskId) {
     return res.status(400).json({ error: "Task ID not provided" });
@@ -70,7 +70,9 @@ async function markComplete(req, res, userId, taskId) {
 
   try {
     const taskCompleted = await db.task.markTaskComplete(userId, taskId);
+
     if (!taskCompleted) return res.status(404).json({ error: "Task not found" });
+    
     return res.status(200).json(taskCompleted);
   } catch (err) {
     return res.status(400).json({ error: err.message });

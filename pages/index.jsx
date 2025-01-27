@@ -99,19 +99,23 @@ export default function Home(props) {
       }
     async function markTaskComplete(taskId) {
         try {
-            const res = await fetch(`/api/tasks/markComplete?taskId=${taskId}`, {
+            const res = await fetch(`/api/tasks/markComplete?action=markComplete&taskId=${taskId}`, {
                 method: 'PATCH',
                 headers: {
                     "content-type": "application/json",
                 }
             })
-            const tasks = await res.json()
-            if (res.ok) {
-                setTasks(tasks.map(task =>
-                    task._id === taskId ? {...task, markedComplete: true} : task
-                ))
-                console.log("complete")
+            if (!res.ok) {
+                throw new Error(`Failed to mark task complete. Status: ${res.status}`);
             }
+
+            const updatedTask = await res.json()
+            setTasks((prevTasks) => 
+                prevTasks.map((task) => 
+                    task._id === taskId ? {...task, markedComplete: true} : task
+                )
+            )
+            console.log("task marked complete: ", updatedTask)
         } catch (err) {
             console.log('Error marking task as complete: ', err.message)
         }
