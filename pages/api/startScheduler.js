@@ -1,4 +1,4 @@
-import { startScheduler } from '../../util/agenda';
+import { startScheduler } from '../../controllers/util/agenda';
 
 export default async function handler(req, res) {
   try {
